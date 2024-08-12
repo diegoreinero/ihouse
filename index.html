@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Completion</title>
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function displayInfo() {
+            const timestamp = getQueryParam('Timestamp_UTC');
+            const responseID = getQueryParam('Response_ID');
+
+            if (timestamp) {
+                document.getElementById('timestamp').textContent = timestamp;
+            }
+            if (responseID) {
+                document.getElementById('responseID').textContent = responseID;
+            }
+        }
+    </script>
+</head>
+<body onload="displayInfo()">
+    <h1>Thank you for completing the survey!</h1>
+    <p>Your Response ID is: <span id="responseID"></span></p>
+    <p>Your completion time was: <span id="timestamp"></span></p>
+</body>
+</html>
